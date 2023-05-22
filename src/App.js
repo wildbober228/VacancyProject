@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import VacancyInfo from "./components/pages/vacancyInfo/vacancyInfo";
+import Empty from "./components/pages/emptyState/emptyState";
+import Favorite from "./components/pages/favoritesVacancy/favoritesVacancy";
+import Search from "./components/pages/vacancySearch/vacancySearch";
+import NavBar from "./components/navBar/navBar";
+import {Route, Router, Routes} from "react-router";
+import {useActions} from "./helpers/hooks/useActions";
+import {getFromLocalStore, LOCAL_STORAGE_KEY_VACANCY} from "./helpers/localStoreHelper";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+
+    const {addAllVacanciesToFavoriteList} = useActions()
+    useEffect(() => {
+        addAllVacanciesToFavoriteList(getFromLocalStore(LOCAL_STORAGE_KEY_VACANCY))
+    }, [])
+
+    return (
+        <React.Fragment>
+            <NavBar/>
+            <Routes>
+                <Route path="/" Component={Search}/>
+                <Route path="/vacancy/:id" Component={VacancyInfo}/>
+                <Route path="/empty" Component={Empty}/>
+                <Route path="/favorite" Component={Favorite}/>
+            </Routes>
+        </React.Fragment>
+    );
+};
 
 export default App;

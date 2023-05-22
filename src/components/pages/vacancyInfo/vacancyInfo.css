@@ -1,0 +1,23 @@
+.vacancy-card {
+    background: #FFFFFF;
+}
+
+.info-vacancy {
+    width: 773px;
+    height: 100%;
+    background: #FFFFFF;
+    border: 1px solid #EAEBED;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.vacancy-container {
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 100vh;
+    margin: 0px;
+    padding: 120px;
+    background: #F5F5F6;
+}

@@ -1,0 +1,13 @@
+.favorite-container {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+    min-height: 100vh;
+    gap: 16px;
+    margin: 0px;
+    padding: 200px;
+    box-sizing: border-box;
+    background: #F5F5F6;
+    height: 1px;
+}

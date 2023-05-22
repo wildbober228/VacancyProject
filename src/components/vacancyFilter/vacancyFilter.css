@@ -1,0 +1,44 @@
+.filter-input-container {
+    display: grid;
+    gap: 10px;
+
+    width: 315px;
+    height: 360px;
+    padding: 20px;
+
+    background: #FFFFFF;
+    border: 1px solid #EAEBED;
+    border-radius: 12px;
+}
+
+
+.filter-header {
+    display: flex;
+    justify-items: center;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.filter-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.filter-footer {
+    justify-self: center;
+}
+
+.double-select {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.clear-filter-button {
+    display: flex;
+    gap: 5px;
+    justify-items: center;
+    align-items: center;
+}
+

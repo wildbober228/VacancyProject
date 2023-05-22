@@ -1,0 +1,22 @@
+.vacancy-list-container {
+    display: grid;
+
+    justify-items: center;
+    gap: 10px;
+    grid-template-areas:
+            "listContainer"
+            "paginationContainer";
+
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+.listContainer {
+    grid-area: listContainer;
+    display: grid;
+    gap: 16px;
+}
+
+.paginationContainer {
+    grid-area: paginationContainer
+}
