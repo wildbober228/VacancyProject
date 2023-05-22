@@ -5,17 +5,15 @@ import {Image, Text} from "@mantine/core";
 import union from "./assets/Union.png"
 
 const NavBar = () => {
-
     const [searchPage, setSearchPage] = useState(true)
-
     return (
         <div>
             <header className="top-bar">
                 <div className='logo'>
                     <Image width={30} height={30} src={union} alt="Not found vacancy image"/>
-                        <Text className="logo-name">
-                            Jobored
-                        </Text>
+                    <Text className="logo-name">
+                        Jobored
+                    </Text>
 
                 </div>
 

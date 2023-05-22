@@ -13,9 +13,6 @@ import {useActions} from "../../helpers/hooks/useActions";
 import {useSelector} from "react-redux";
 
 const VacancyCard = ({vacancy, inList}) => {
-
-    const backUrl = "/test" //мб уже не нужен
-
     const [favoriteFlag, setFavoriteFlag] = useState(false);
     const {addVacancyToFavoriteList, deleteVacancyFromFavoriteList, addAllVacanciesToFavoriteList} = useActions()
     const {favoritesId} = useSelector(state => state.favorite)
@@ -64,19 +61,18 @@ const VacancyCard = ({vacancy, inList}) => {
 
     return (
         <div className="vacancy-card-container">
-
             {inList === true ? <Link
                 style={{textDecoration: "none"}}
                 data-elem={`vacancy-${vacancy.id}`}
                 className="vacancy-name"
-                to={{pathname: `/vacancy/${vacancy.id}`, query: {backUrl}}}>{vacancy.profession}
+                to={{pathname: `/vacancy/${vacancy.id}`}}>{vacancy.profession}
             </Link> : <div>
                 <Text
                     size="28px"
                     fw="700"
                     lh="34px"
                     style={{color: "#232134"}}
-                    >
+                >
                     {vacancy.profession}
                 </Text>
             </div>}

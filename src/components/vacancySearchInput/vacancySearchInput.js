@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Image, Input, TextInput} from "@mantine/core";
+import {Button, Image} from "@mantine/core";
 import search_icon from "./assets/SearchIcon.png";
 import "./vacancySearchInput.css"
 
@@ -17,7 +17,14 @@ const VacancySearchInput = ({setSearchValue, searchVacancies}) => {
                 />
             </div>
             <div className="search-button">
-                <Button data-elem="search-button" onClick={() => searchVacancies()} w="83px" h="32px" radius="8px" bg="#5E96FC">
+                <Button
+                    data-elem="search-button"
+                    onClick={() => searchVacancies()}
+                    w="83px"
+                    h="32px"
+                    radius="8px"
+                    bg="#5E96FC"
+                >
                     Поиск
                 </Button>
             </div>

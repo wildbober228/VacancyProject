@@ -4,9 +4,7 @@ import Empty from "./components/pages/emptyState/emptyState";
 import Favorite from "./components/pages/favoritesVacancy/favoritesVacancy";
 import Search from "./components/pages/vacancySearch/vacancySearch";
 import NavBar from "./components/navBar/navBar";
-import {Route, Router, Routes} from "react-router";
-import {useActions} from "./helpers/hooks/useActions";
-import {getFromLocalStore, LOCAL_STORAGE_KEY_VACANCY} from "./helpers/localStoreHelper";
+import {Route, Routes} from "react-router";
 
 const App = () => {
 

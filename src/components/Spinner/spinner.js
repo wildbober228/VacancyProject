@@ -1,10 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import "./spinner.css"
 import {Transition} from "react-transition-group";
 
 const Spinner = ({width = 100, height = 100}) => {
-
-    const [spinnerVisible, setSpinnerVisible] = useState(false)
 
     return (
         <div className="spinner-container">

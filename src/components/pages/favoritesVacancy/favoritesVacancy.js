@@ -23,10 +23,6 @@ const FavoritesVacancy = () => {
         fetchFavoriteVacancies(favoritesId)
     }, [favoritesId])
 
-    const renderListIsEmpty = () => {
-        return favoritesId.length === 0;
-    }
-
     return (
         <div className="favorite-container">
             {loading === false &&
@@ -38,7 +34,7 @@ const FavoritesVacancy = () => {
                             <VacanciesList vacancies={favoritesData?.objects} itemsPerPage={4}/> :
                             <EmptyState
                                 fromFavorite={true}
-                                />}
+                            />}
                     </div>
                     : <Spinner/>
                 }
