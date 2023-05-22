@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import "./vacancyCard.css"
-import {Image} from "@mantine/core";
+import {Image, Text} from "@mantine/core";
 import start_false from './assets/Star_false.jpg'
 import start_true from './assets/Start_true.jpg'
 import location_icon from './assets/LocationIcon.png'
@@ -12,7 +12,7 @@ import {
 import {useActions} from "../../helpers/hooks/useActions";
 import {useSelector} from "react-redux";
 
-const VacancyCard = ({vacancy}) => {
+const VacancyCard = ({vacancy, inList}) => {
 
     const backUrl = "/test" //мб уже не нужен
 
@@ -62,17 +62,24 @@ const VacancyCard = ({vacancy}) => {
         toLocalStore(vacancy, LOCAL_STORAGE_KEY_VACANCY, addVacancyToFavoriteList, deleteVacancyFromFavoriteList, addAllVacanciesToFavoriteList)
     }
 
-    const cardId = () => {
-        return `vacancy-${vacancy.id}`
-    }
-
     return (
         <div className="vacancy-card-container">
-            <Link
+
+            {inList === true ? <Link
+                style={{textDecoration: "none"}}
                 data-elem={`vacancy-${vacancy.id}`}
                 className="vacancy-name"
                 to={{pathname: `/vacancy/${vacancy.id}`, query: {backUrl}}}>{vacancy.profession}
-            </Link>
+            </Link> : <div>
+                <Text
+                    size="28px"
+                    fw="700"
+                    lh="34px"
+                    style={{color: "#232134"}}
+                    >
+                    {vacancy.profession}
+                </Text>
+            </div>}
             <div className="price" style={{fontSize: 16}}>
                 <div>
                     {payment(vacancy.currency, vacancy.payment_from, vacancy.payment_to)}

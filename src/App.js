@@ -10,11 +10,6 @@ import {getFromLocalStore, LOCAL_STORAGE_KEY_VACANCY} from "./helpers/localStore
 
 const App = () => {
 
-    const {addAllVacanciesToFavoriteList} = useActions()
-    useEffect(() => {
-        addAllVacanciesToFavoriteList(getFromLocalStore(LOCAL_STORAGE_KEY_VACANCY))
-    }, [])
-
     return (
         <React.Fragment>
             <NavBar/>

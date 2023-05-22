@@ -1,23 +1,28 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./favoritesVacancy.css"
 import {useSelector} from "react-redux";
 import {useActions} from "../../../helpers/hooks/useActions";
 import VacanciesList from "../../vacanciesList/vacanciesList";
 import {Navigate} from "react-router";
+import Spinner from "../../Spinner/spinner";
+import {getFromLocalStore, LOCAL_STORAGE_KEY_VACANCY} from "../../../helpers/localStoreHelper";
+import EmptyState from "../emptyState/emptyState";
 
 const FavoritesVacancy = () => {
     const {favoritesId, loading} = useSelector(state => state.favorite)
     const {favoritesData, loadingData, errorData} = useSelector(state => state.favoriteData)
-    const {fetchFavoriteVacancies} = useActions()
-
+    const {fetchFavoriteVacancies, addAllVacanciesToFavoriteList} = useActions()
+    const [emptyState, setEmptyState] = useState(false)
 
     useEffect(() => {
-        fetchFavoriteVacancies(favoritesId)
+        addAllVacanciesToFavoriteList(getFromLocalStore(LOCAL_STORAGE_KEY_VACANCY))
+
     }, [])
 
     useEffect(() => {
+
         fetchFavoriteVacancies(favoritesId)
-    }, [favoritesId, loading])
+    }, [favoritesId])
 
     const renderListIsEmpty = () => {
         return favoritesId.length === 0;
@@ -27,14 +32,16 @@ const FavoritesVacancy = () => {
         <div className="favorite-container">
             {loading === false &&
             <div>
-                {renderListIsEmpty() === false
+                {loadingData === false
                     ?
                     <div>
-                        {loadingData === false ?
+                        {(emptyState === false && favoritesData?.objects?.length > 0) ?
                             <VacanciesList vacancies={favoritesData?.objects} itemsPerPage={4}/> :
-                            <div>Spinner</div>}
+                            <EmptyState
+                                fromFavorite={true}
+                                />}
                     </div>
-                    : <Navigate to="/empty"/>
+                    :  <div>Spinner</div>
                 }
             </div>
 

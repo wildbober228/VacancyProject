@@ -24,6 +24,7 @@ const VacancyInfo = () => {
                     <div className="vacancy-card">
                         <VacancyCard
                             vacancy={vacancy}
+                            inList={false}
                         />
                     </div>
 

@@ -34,6 +34,7 @@ const VacanciesList = ({vacancies, itemsPerPage}) => {
                 currentItems.map((vacancy) => (
                     <VacancyCard
                         vacancy={vacancy}
+                        inList={true}
                     />
                 ))}
             </div>

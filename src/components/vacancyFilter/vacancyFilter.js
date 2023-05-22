@@ -29,7 +29,11 @@ const VacancyFilter = ({   cataloguesValue,
     return (
         <div className="filter-input-container">
             <div className="filter-header">
-                <Text>
+                <Text
+                    fs="20px"
+                    fw="700"
+                    style={{color: "#232134"}}
+                >
                     Фильтры
                 </Text>
                 <Button onClick={() => clearFilter()} color="gray" variant="subtle">
