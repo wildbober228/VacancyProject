@@ -40,8 +40,9 @@ const VacancyFilter = ({   cataloguesValue,
                 </Button>
             </div>
             <div className="filter-body">
-                <div>
+                <div >
                     {loading === false ? <Select
+                        data-elem="industry-select"
                         label="Отрасль"
                         placeholder="Выберите отрасль"
                         value={cataloguesValue}
@@ -52,6 +53,7 @@ const VacancyFilter = ({   cataloguesValue,
                 </div>
                 <div className="double-select">
                     <NumberInput
+                        data-elem="salary-from-input"
                         label="Оклад"
                         description="От"
                         value={paymentFrom}
@@ -60,6 +62,7 @@ const VacancyFilter = ({   cataloguesValue,
                         min={0}
                     />
                     <NumberInput
+                        data-elem="salary-to-input"
                         description="До"
                         value={paymentTo}
                         onChange={setPaymentTo}
@@ -69,7 +72,7 @@ const VacancyFilter = ({   cataloguesValue,
                 </div>
             </div>
             <div className="filter-footer">
-                <Button onClick={() => searchVacancies()}>
+                <Button data-elem="search-button" onClick={() => searchVacancies()}>
                     Применить
                 </Button>
             </div>

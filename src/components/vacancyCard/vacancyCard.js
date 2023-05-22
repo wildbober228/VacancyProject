@@ -62,10 +62,17 @@ const VacancyCard = ({vacancy}) => {
         toLocalStore(vacancy, LOCAL_STORAGE_KEY_VACANCY, addVacancyToFavoriteList, deleteVacancyFromFavoriteList, addAllVacanciesToFavoriteList)
     }
 
+    const cardId = () => {
+        return `vacancy-${vacancy.id}`
+    }
+
     return (
         <div className="vacancy-card-container">
-            <Link className="vacancy-name"
-                  to={{pathname: `/vacancy/${vacancy.id}`, query: {backUrl}}}>{vacancy.profession}</Link>
+            <Link
+                data-elem={`vacancy-${vacancy.id}`}
+                className="vacancy-name"
+                to={{pathname: `/vacancy/${vacancy.id}`, query: {backUrl}}}>{vacancy.profession}
+            </Link>
             <div className="price" style={{fontSize: 16}}>
                 <div>
                     {payment(vacancy.currency, vacancy.payment_from, vacancy.payment_to)}
@@ -86,8 +93,13 @@ const VacancyCard = ({vacancy}) => {
                 </>}
             </div>
             <div className="favoriteButton">
-                <Image onClick={() => onHandleFavoriteClick()} width={22} height={22}
-                       src={favoriteFlag === false ? start_false : start_true} alt="Not found favorite button image"/>
+                <Image
+                    data-elem={`vacancy-${vacancy.id}-shortlist-button`}
+                    onClick={() => onHandleFavoriteClick()}
+                    width={22}
+                    height={22}
+                    src={favoriteFlag === false ? start_false : start_true} alt="Not found favorite button image"
+                />
             </div>
         </div>
     );

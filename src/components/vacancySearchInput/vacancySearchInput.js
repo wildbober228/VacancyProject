@@ -9,6 +9,7 @@ const VacancySearchInput = ({setSearchValue, searchVacancies}) => {
             <div className="input">
                 <Image width={12.57} height={12.57} src={search_icon} alt="Not found search icon"/>
                 <input
+                    data-elem="search-input"
                     className="input-component"
                     type="text"
                     placeholder="Введите название вакансии"
@@ -16,7 +17,7 @@ const VacancySearchInput = ({setSearchValue, searchVacancies}) => {
                 />
             </div>
             <div className="search-button">
-                <Button onClick={() => searchVacancies()} w="83px" h="32px" radius="8px" bg="#5E96FC">
+                <Button data-elem="search-button" onClick={() => searchVacancies()} w="83px" h="32px" radius="8px" bg="#5E96FC">
                     Поиск
                 </Button>
             </div>
