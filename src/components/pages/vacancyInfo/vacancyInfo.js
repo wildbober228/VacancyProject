@@ -4,6 +4,7 @@ import {useActions} from "../../../helpers/hooks/useActions";
 import './vacancyInfo.css';
 import {Navigate, useParams} from "react-router";
 import VacancyCard from "../../vacancyCard/vacancyCard";
+import Spinner from "../../Spinner/spinner";
 
 const VacancyInfo = () => {
     const {vacancy, loading, error} = useSelector(state => state.vacancy)
@@ -33,7 +34,7 @@ const VacancyInfo = () => {
                     </div>
                 </> :
                 <div>
-                    Spinner
+                    <Spinner/>
                 </div>
             }
 

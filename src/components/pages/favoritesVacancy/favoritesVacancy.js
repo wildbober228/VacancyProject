@@ -3,7 +3,6 @@ import "./favoritesVacancy.css"
 import {useSelector} from "react-redux";
 import {useActions} from "../../../helpers/hooks/useActions";
 import VacanciesList from "../../vacanciesList/vacanciesList";
-import {Navigate} from "react-router";
 import Spinner from "../../Spinner/spinner";
 import {getFromLocalStore, LOCAL_STORAGE_KEY_VACANCY} from "../../../helpers/localStoreHelper";
 import EmptyState from "../emptyState/emptyState";
@@ -41,7 +40,7 @@ const FavoritesVacancy = () => {
                                 fromFavorite={true}
                                 />}
                     </div>
-                    :  <div>Spinner</div>
+                    : <Spinner/>
                 }
             </div>
 

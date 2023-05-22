@@ -6,6 +6,7 @@ import VacanciesList from "../../vacanciesList/vacanciesList";
 import {Navigate} from "react-router";
 import VacancySearchInput from "../../vacancySearchInput/vacancySearchInput";
 import VacancyFilter from "../../vacancyFilter/vacancyFilter";
+import Spinner from "../../Spinner/spinner";
 
 const VacancySearch = () => {
 
@@ -63,7 +64,7 @@ const VacancySearch = () => {
                     {(loadingAuth === false && loadingAll === false)
                         ? vacancies?.objects?.length !== 0 ?
                             <VacanciesList vacancies={vacancies?.objects} itemsPerPage={4}/> : <Navigate to="/empty"/>
-                        : <div>Spinner</div>}
+                        : <Spinner/>}
                 </div>
             </div>
         </>

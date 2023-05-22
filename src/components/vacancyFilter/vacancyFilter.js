@@ -4,6 +4,7 @@ import "./vacancyFilter.css"
 import drop_filter from "./assets/drop-filter.png";
 import {useSelector} from "react-redux";
 import {useActions} from "../../helpers/hooks/useActions";
+import Spinner from "../Spinner/spinner";
 
 
 const VacancyFilter = ({   cataloguesValue,
@@ -53,7 +54,7 @@ const VacancyFilter = ({   cataloguesValue,
                         onChange={setCataloguesValue}
                         data={catalogues.map(catalog => ({value: catalog.key, label: catalog.title.length > 30 ? catalog.title_trimmed : catalog.title}))}
                         radius="8px"
-                    /> : <div>Spinner</div>}
+                    /> : <Spinner width={25} height={25}/>}
                 </div>
                 <div className="double-select">
                     <NumberInput
